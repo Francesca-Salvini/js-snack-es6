@@ -14,6 +14,7 @@
 
 // PRIMO ESERCIZIO
 
+// creo un array con gli oggetti "bici". Proprietà : nome e peso
 const arrayBici = [
     {
         "nome" : "Alpina",
@@ -42,9 +43,11 @@ const arrayBici = [
 ];
 
 
-
+// dichiaro una variabile flag che considera la prima bici come se fosse la più leggera
 let biciclettaPiuLeggera = arrayBici[0];
 
+// con un ciclo for comparo la prima bici con le altre dell'array, per stabilire quella
+// che ha peso minore
 for (let i = 0; i < arrayBici.length; i++) {
     let thisBici = arrayBici[i];
     const {nome, peso} = thisBici;
@@ -56,6 +59,7 @@ for (let i = 0; i < arrayBici.length; i++) {
     }
 } 
 
+// OUTPUT 
 console.log(
     `
     ${biciclettaPiuLeggera.nome} è la bici più leggera
@@ -64,3 +68,65 @@ console.log(
 
 
 // FINE PRIMO ESERCIZIO
+
+// SECONDO ESERCIZIO
+
+// creo un array che contiene gli oggetti "squadre di calcio"
+const arraySquadreCalcio = [
+    {
+        "nome" : "Milan",
+        "punti_fatti" : 0,
+        "falli_subiti" : 0
+    }, 
+
+    {
+        "nome" : "Inter",
+        "punti_fatti" : 0,
+        "falli_subiti" : 0
+    }, 
+
+    {
+        "nome" : "Juventus",
+        "punti_fatti" : 0,
+        "falli_subiti" : 0
+    }, 
+
+    {
+        "nome" : "Spezia",
+        "punti_fatti" : 0,
+        "falli_subiti" : 0
+    }, 
+];
+
+// con un ciclo for destrutturo l'array 
+for( let i = 0; i < arraySquadreCalcio.length; i++) {
+    let thisSquadra = arraySquadreCalcio[i];
+    const {nome, punti_fatti, falli_subiti} = thisSquadra;
+    // console.log(nome, punti_fatti, falli_subiti);
+
+    // punti e falli vengono stabiliti con funzioni randomiche
+    let punti = Math.floor(Math.random() * 100);
+    let falli = Math.floor(Math.random() * 100);
+
+    // nuovo oggetto squadra 
+    const squadra = {
+        nome : nome ,
+        punti_fatti : [punti],
+        falli_subiti : [falli]
+    };
+    
+    console.log(squadra);
+
+    // creo un array dove andranno inseriti solo nomi e falli subiti
+    const arrayNomiEFalli = [];
+
+    arrayNomiEFalli.push(nome, falli);
+    console.log(arrayNomiEFalli);
+
+    // OUTPUT
+    console.log(
+        `
+        ${squadra.nome} ha subito ${falli} falli 
+        `
+    );
+}
